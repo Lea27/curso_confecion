@@ -12,5 +12,5 @@ const calcular = (a ,b, operacion, callback) => {
 function producto (a,b) {return a*b}
 
 console.log(calcular(4,6,'suma', (x,y) => x + y))
-console.log(calcular(4,6,'suma', (x,y) => x - y))
 console.log(calcular(4,6,'producto' , producto))
+console.log(calcular(4,6,'suma', (x,y) => x - y))
