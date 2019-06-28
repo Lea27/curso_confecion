@@ -6,7 +6,7 @@ let garrapata
 const animal1 = {
     nombre: 'Rufo',
     edad: 3,
-    raza: 'perro'
+    raza: 'perro',
     parasitos: [pulga, garrapata]
 }
 
