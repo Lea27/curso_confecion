@@ -27,3 +27,33 @@ let x = cadena.split(' ').join('').toLocaleUpperCase() // con los split podemos 
 
 console.log(x)
 console.log((x [3] + ' ' + x[4]).toUpperCase())
+
+
+
+/*
+cadena.slice(inicio, final)
+cadena.substring(inicio, final)
+cadena.substr(inicio, desplazamiento)
+
+cadena.match()
+cadena.search()
+cadena.replace()
+
+cadena.indexOf(clave)
+cadena.lastIndexOf(clave)
+
+cadena.charAt(posicion) // = cadena[position]
+cadena.charCodeAt(posicion)
+
+String.fromCharCode(num) */
+
+let numero = 23.7865432
+console.log(numero)
+console.log(numero.toString())
+console.log(numero.toFixed(2))
+console.log(numero.toPrecision(4))
+
+numero = 0.000000000000237865432
+console.log(numero.toExponential())
+numero = 23.7865432
+console.log(numero.toLocaleString())
