@@ -12,13 +12,18 @@ console.log(cadena.toUpperCase()) // Los Stirngs transforman 'cadena' en objetos
 console.log(cadena.length)
 console.log(cadena[100])
 
-/*for (let index = 0; index < cadena.length; index++) {
+for (let index = 0; index < cadena.length; index++) {
     const item = cadena[index];
-    console.log(item)
-} */
+    console.log(item) 
+} 
 
 /*function rest (...agrupador) {
     console.log(agrupador[5])
 }
 
 rest(1, 4, 6, 9, 12) // nos devuelve un array porque z no puede valer 1, 4, 6.... */
+
+let x = cadena.split(' ').join('').toLocaleUpperCase() // con los split podemos separar los componentes // split crea un array a partir de una cadena // join crea una cadena desde un array
+
+console.log(x)
+console.log((x [3] + ' ' + x[4]).toUpperCase())
