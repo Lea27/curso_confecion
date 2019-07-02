@@ -56,4 +56,4 @@ console.log(numero.toPrecision(4))
 numero = 0.000000000000237865432
 console.log(numero.toExponential())
 numero = 23.7865432
-console.log(numero.toLocaleString())
+console.log(numero.toLocaleString('es', {style: 'currency', currency: 'EUR' }))
