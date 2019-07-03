@@ -15,7 +15,7 @@ function isNombreRey(nombre) {
             }
         
     }
-    return [false, -1]
+    return [false]
 }
 
 function mostrarIsRey(nombre) {
