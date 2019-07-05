@@ -95,4 +95,4 @@ function isNombreRey(nombre) {
     
 }
 console.log(isNombreRey('fernando'))
-
+console.log(isNombreRey('javier'))
