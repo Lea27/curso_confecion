@@ -5,13 +5,13 @@
  */
 
  
- function Cliente(nombre, direccion, telefono, nif) {
+ function Cliente (nombre, direccion, telefono, nif) {
     this.nombre = nombre
     this.direccion = direccion
     this.telefono = telefono
     this.nif = nif
 }
-function Elementos(descripcion, precioU, cantidad , numFactura, tipoIVA, formaPago, fecha) {
+function Elementos (descripcion, precioU, cantidad , numFactura, tipoIVA, formaPago, fecha) {
 this.descripcion = descripcion 
 this.precioU = precioU
 this.cantidad = cantidad
@@ -22,7 +22,7 @@ this.fecha = fecha
 }
      
  
- function Factura(empresa) {
+ function Factura (empresa) {
     const empresa = {
         nombre: 'Ediciones Tuatalug',
         direccion: 'c/ Pez 1, Madrid',

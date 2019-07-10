@@ -1,56 +1,42 @@
-const {fechaEsp, fijarLongitudCadena} = require('./15_helpers.js')
+const {fechaEsp, fijarLongitudCadena} = requiere ('15_facturas.js')
 
-const templateFactura = {
-    empresa: {
-        nombre: '',
-        direccion: '',
-        telefono: '',
-        nif: '',
-    },
-    cliente: {
-        nombre: '',
-        direccion: '',
-        telefono: '',
-        nif: '',
-    },
-    items : [
-        {descripcion: '', precioU: 0, cantidad: 0} 
-    ],
-    numFactura: '',
-    tipoIVA: '',
-    formaPago: '',
-    fecha: new Date()
-    }
-
-templateFactura.calcularImporte = function() {}
-templateFactura.mostrarImporte = function() {}
+function Factura (empresa = {}, cliente = {}, items = [{}], numFactura ='', tipoIVA ='', formaPago ='', fecha = new Date()) {
+    this.empresa = empresa
+    this.cliente = cliente
+    this.items = items
+    this.numFactura = numFactura
+    this.tipoIVA = tipoIVA
+    this.formaPago = formaPago
+    this.fecha = fecha
+    
+}
 
 
-const factura = {
-    empresa: {
-        nombre: 'Ediciones Tuatalug',
-        direccion: 'c/ Pez 1, Madrid',
-        telefono: '625875921',
-        nif: 'T-34761234',
-    },
-    cliente: {
-        nombre: 'Librería Boracai',
-        direccion: 'c/ Carranza 5, Cádiz',
-        telefono: '625493421',
-        nif: 'F-76521743',
-    },
-    items : [
-        {descripcion: 'Angular 8.0', precioU: 30, cantidad: 10},   
-        {descripcion: 'JS para torpes', precioU: 32, cantidad: 12},   
-        {descripcion: 'Typescrip Avanzado', precioU: 45, cantidad: 8},   
-        {descripcion: 'Introducción a las aplicaciones Web', precioU: 37, cantidad: 11}],
-    numFactura: '000000012',
-    tipoIVA: 0.04,
-    formaPago: 'Contado',
-    fecha: new Date()
-    }
 
-factura.calcularImporte = function() {
+function Empresa (nombre, direccion, telefono, nif) {
+    this.nombre = nombre
+    this.direccion = direccion
+    this.telefono = telefono
+    this.nif = nif
+}
+
+function Item (descripcion = '', precioU = 0, cantidad =0) {
+    this.descripcion = descripcion 
+    this.precioU = precioU
+    this.cantidad = cantidad
+}
+
+function Direccion (calle, num, poblacion, pais) {
+    this.calle = calle
+    this.num = num
+    this.poblacion = poblacion
+    this.pais = pais
+}
+Direccion.prototype.ToString() = function () {
+    return `${this.calle} ${this.num} ${this.poblacion} ${this.pais}`
+}
+
+Factura.prototype.calcularImporte = function() {
     const importe = {} 
     importe.base = 
         this.items
@@ -60,8 +46,7 @@ factura.calcularImporte = function() {
     importe.total = importe.base + importe.iva
     return importe
 }
-
-factura.listarItems = function() {
+Factura.prototype.listarItems = function() {
     let items = ``
     this.items.forEach(
         item => {
@@ -77,7 +62,7 @@ factura.listarItems = function() {
     return items
 }
 
-factura.prepararFactura = function() {
+Factura.prototype.prepararFactura = function() {
     const importe = this.calcularImporte()
     const factura =
 `
@@ -107,9 +92,33 @@ factura.prepararFactura = function() {
     return factura
 }
 
-factura.render = function () {
+Factura.prototype.render = function () {
     console.log(this.prepararFactura())
 }
 
 
-factura.render()
+const empresa = new Empresa(
+    'Ediciones Tuatalug', 
+    new Direccion('c/ Pez', '1', 'Madrid', 'España'),
+    '625875921',
+    'T-34761234',)
+
+const cliente1 = new Empresa(
+    'Librería Boracai',
+    new Direccion('c/ Carranza', '5', 'Cádiz','España'),
+    '625493421',
+    'F-76521743')
+
+const items = [
+    new Item('Angular 8.0', 30, 10),
+    new Item('JS para torpes', 32, 12),
+    new Item('Typescrip Avanzado', 45, 8),
+    new Item('Introducción a las aplicaciones Web',  37, 11)
+]
+
+
+const factura_1 = new Factura(
+    empresa, cliente1, items, '000000012', 0.04, 'Contacto',
+)
+
+console.log(factura_1)
