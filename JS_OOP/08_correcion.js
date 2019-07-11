@@ -15,7 +15,7 @@ const isPali = (cadena = '') => {
     }
     return r
 }
-const iPaliShort = (cadena = '') => {
+const isPaliShort = (cadena = '') => {
     sinEspacios = cadena.split(' ').join('').toLowerCase()
     return sinEspacios === sinEspacios.split('').reverse().join('')
 }
