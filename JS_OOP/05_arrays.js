@@ -1,22 +1,56 @@
-
-let ob = {} // new object
+let ob = {} // new Object()
 let aDatos = [2, 8, 9, 76] // new Array()
-//un array es un objeto indexado que guarda valores asociados a una posicion : la posicion 0 vale 2, la posicion 1 vale 8 ...
-// array js es diferente de otros : no admite tipos, [2, 8, 9, 76, 'pepe']/no se puede limitar la longitud de un array,  son potencialmante infinitos
-aDatos[aDatos.length] = 87 // se añade este valor al array y crece
-aDatos[aDatos.length] = 56 // se añade otro valor sumandolo al anterior 
+// aDatos[aDatos.length] = 87
+// aDatos[aDatos.length] = 56
+aDatos.push(87, 56)
 
-// aDatos[0] = 9 //sustituye el 2 por un 0
 aDatos[100] = 9
-console.log(aDatos[78])
+// console.log(aDatos[78])
 
-for (let i = 0; i < aDatos.length; i++) {
-    const item = aDatos[i];    // item o element, se refieren a los valores
-    if (!item) {
-        aDatos[i] = parseInt(Math.random() * 100)
+/** function randomArray
+ * @description: funcion que devuelve un array de n números aleatorio 
+ *                      enteros y positivos menores o iguales a 100
+ * @params { number } n
+ * @return { array }
+ */
+
+ function randomArray(n = 0) {
+     const r = []
+        for (let i = 0; i < n; i++) {
+            r[i] = parseInt(Math.random() * 100) 
+        }     
+     return r
+ }
+
+console.log(String(randomArray(65)))
+
+/** función formatoDNI
+ * @description: dar formato número al DNI
+ * @param: {number | string} dni
+ * @returns { number }
+ */
+function formatoDNI(dni) {
+    if(typeof dni === 'number') {
+        return dni
     }
-
+    let cadenaDNI = ''
+    for (let i = 0; i < dni.length; i++) {
+        const caracter = dni[i];
+            if(caracter != ' ' && !isNaN(caracter)) {
+                cadenaDNI += caracter
+            }
+    }
+    return Number(cadenaDNI)
 }
 
-console.log(String(aDatos))
-// convertir en funcion que devuelve un array de n números aleatorios enteros y positivos menores o iguales a 100
+
+/** función letraDNI
+ * @description: calcular letra DNI
+ * @param: {number | string} dni
+ * @returns {string}
+ */
+
+ function letraDNI(dni) {
+     const aLetras =  ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+     return aLetras[formatoDNI(dni)%23]
+ }

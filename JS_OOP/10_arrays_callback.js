@@ -1,98 +1,98 @@
 
-
 const aDatos = [2, 3, 7, 4, 9, 5]
 
-/*
+/* 
 aDatos.map( (item, i, array) => {} )
 aDatos.filter( (item, i, array) => {} )
 aDatos.some( (item, i, array) => {} )
 aDatos.every( (item, i, array) => {} )
 aDatos.forEach( (item, i, array) => {} )
 aDatos.reduce( (item, i, array) => {} )
-aDatos.reduceRight( (item, i, array) => {} )
+aDatos.reduceRight( (item, i, array) => {} ) 
 */
 
-aDatos.forEach(  // igual que un bucle for
-    item => { console.log(item)}
-)  
+// Recorrido o procesado del array
 
+aDatos.forEach(
+    item => { console.log(` - ${item}`)}
+)
 
 /*
     Equivale al for in de ES6
     for (const item of aDatos) {
-    console.log(` - ${item}`)
-}*/
+        console.log(` - ${item}`)
+    }
+*/
 
 // Proyectar o mapear un array 
 
-function cuadrados(aDatos = []) {
-    return aDatos.map( item => item * item) //siempre devuelve un array siempre de los mismos números
-    
+function cuadrados(aDatos = []) { 
+    return aDatos.map( item => item * item)
 }
 
-// const cuadrados = aDatos => aDatos.map( item => item * item) // funcion reducida 
+// const cuadrados = aDatos => aDatos.map( item => item * item)
 
 
 console.log(cuadrados(aDatos))
 
-let aUsuarios = ['rosa', 'raquel', 'elena','ramon', 'maria', 'roberto']
-console.log(aUsuarios.map(item => item.toUpperCase()))
+let aUsuarios = ['rosa', 'raquel', 'elena', 'renata', 'maria', 'roberto', 'ramon']
+console.log(aUsuarios.map( item => item.toUpperCase()))
 
-// Filtros de Array 
+// Filtros de Array
 
 function pares(aDatos = []) {
-    return aDatos.filter( item => ! (item%2) ) // (!) es porque la funcion boulean devolveria false para los pares
-    
+    return aDatos.filter( item => !(item%2) )
 }
 
-// const pares = aDatos => aDatos.filter( item => ! (item%2) ) // (!) es porque la funcion boulean devolveria false para los pares
+// const pares = aDatos => aDatos.filter( item => !(item%2) )
 
+function inpares(aDatos = []) {
+    return aDatos.filter( item => (item%2) )
+}
 
 console.log(pares(aDatos))
 
-// Reducciones
+// Reducciones 
 
-function sumaTotal(aDatos) {
-    return aDatos.reduce( (previo, item) => {return previo + item} )  
+function sumaTotal(aDatos = []) {
+   return aDatos.reduce( (acumulado, item) => {return acumulado + item} )  
 }
 
-//const sumaTotal = aDatos => aDatos.reduce( (previo, item) => {return previo + item} )
-
-
-function media(aDatos=[]) {
+function media(aDatos = []) {
     let i = 0
-    /*let sumaTotal = aDatos.reduce((acumulado, item, index)=> {
+   /*  let sumaTotal = aDatos.reduce( (acumulado, item, index) => {
         i = index
         return acumulado + item
-    })
+    }) 
     // i = i + 1
-    return sumaTotal / ++i*/
+    return  sumaTotal / ++i */
 
-    return aDatos.reduce((acumulado, item, index)=> {
+    return aDatos.reduce( (acumulado, item, index) => {
         i = index
         return acumulado + item
-    }) / ++i
-}
+    })  / ++i
+ }
 
-
-
-console.log('SumaTotal:', sumaTotal(aDatos))
-console.log('Media:', media(aDatos))
+console.log('SumaTotal: ', sumaTotal(aDatos))
+console.log('Media: ', media(aDatos))
 
 const aReyes = [
-    'Fernando','Isabel','Juana','Carlos','Felipe','Luis','Jose',"Amadeo",'Alfonso','Juan Carlos']
-/*for (let i = 0; i < aReyes.length; i++) {
+    'Fernando', 'Isabel', 'Juana', 'Carlos', 'Felipe', 'Luis',
+    'Jose', "Amadeo", 'Alfonso', 'Juan Carlos' ]
+
+/* function isNombreRey(nombre) {
+for (let i = 0; i < aReyes.length; i++) {
     const item = aReyes[i];
     if ( nombre.toUpperCase() == item.toUpperCase()) {
         return [true, i]
-        }
-    
-}
-return [false, -1]*/
+    }
+} 
+return [false]
+} */
 
 function isNombreRey(nombre) {
-    return aReyes.some( (item) => nombre.toUpperCase()=== item.toUpperCase())
-    
+    return aReyes.some( item => nombre.toUpperCase() === item.toUpperCase())
 }
+ 
 console.log(isNombreRey('fernando'))
-console.log(isNombreRey('javier'))
+console.log(isNombreRey('Federico'))

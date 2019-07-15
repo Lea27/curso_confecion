@@ -1,0 +1,127 @@
+@font-face {
+    font-family: "source_sans_pro";
+    src: url(../assets/SourceSansPro-Regular.otf) format('truetype');
+    src: url(../assets/sourcesanspro-regular-webfont.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "getsu_magic";
+    src: url(../assets/Getsu_Magic.otf) format('truetype');
+    src: url(../assets/getsu_magic-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "seves_brg";
+    src: url(../assets/SEVESBRG.TTF) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "source_sans_pro", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    /* font-family:  "seves_brg", cursive */
+    font-family: "getsu_magic", cursive;
+    font-size: 4rem;
+    padding: 1rem 2rem;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.content_wrapper {
+    font-size: 1.1rem;
+}
+
+section.centrada {
+    width: 83.8%;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+section.centrada p { border: 1px solid;
+    padding: 1em;
+}
+
+.espacios {
+    margin: 2rem 1rem;
+    background-color: coral;
+    padding-bottom: 2.5%;
+}
+
+.espacios h2  {
+    padding: 1rem;
+    margin: 0;
+}
+
+.espacios p  {
+    padding: 1rem;
+    background-color: white;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.flex {
+    margin: 2rem 1rem;
+    background-color: coral;
+    padding-bottom: 5%;
+}
+
+.flex h2  {
+    padding: 1rem;
+    margin: 0;
+}
+
+.flex p  {
+    padding: 1rem;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+@media screen and (min-width: 690px) {
+
+    .espacios::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .espacios p  {
+        width: 30%;
+        float: left;
+    }
+
+    .espacios p:not(:last-of-type) {
+        margin-right: 0;
+    }
+
+    .flex .flex-wrapper {
+        display: flex;
+    }
+
+    .flex h2 {
+        text-shadow:  5px 5px 5px grey
+    }
+
+    .flex p {
+        box-shadow: 5px 5px 10px 10px grey
+    }
+    
+    .flex p:not(:last-of-type) {
+        margin-right: 0;
+    }
+ 
+
+}

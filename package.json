@@ -1,15 +1,34 @@
 {
-  "name": "JS",
+  "name": "curso_web_2009",
   "version": "1.0.0",
-  "description": "Ejercico de JS: Módulo 2",
-  "main": "app.js",
+  "description": "Ejercicios del curso de páginas Web",
+  "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss/:css/"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alce65/curso_web_2009.git"
+  },
+  "keywords": [
+    "HTML5",
+    "Web",
+    "CSS3"
+  ],
   "author": "Alejandro Cerezo",
   "license": "ISC",
-  "devDependencies": {
-    "jasmine": "^3.4.0"
-  }
+  "bugs": {
+    "url": "https://github.com/alce65/curso_web_2009/issues"
+  },
+  "homepage": "https://github.com/alce65/curso_web_2009#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dialog-polyfill": "^0.5.0",
+    "holderjs": "^2.9.6",
+    "jquery": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {}
 }

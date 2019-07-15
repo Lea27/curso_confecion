@@ -1,5 +1,6 @@
 /* 
 Definir la estructura de un objeto que almacena una factura. 
+
 Las facturas están formadas por:
 - la información de la propia empresa:
     - nombre de la empresa
@@ -16,10 +17,11 @@ Las facturas están formadas por:
     - precio por unidad
     - cantidad 
 - otra información básica de la factura
-    - el número de dactura
+    - el número de tactura
     - tipo de IVA
     - forma de pago
     - la fecha
+
 Añadir al menos dos métodos:
 - el que calcula el importe total de la factura
 - el que muestra por pantalla la factura 
@@ -29,9 +31,21 @@ Añadir al menos dos métodos:
 const {fechaEsp, fijarLongitudCadena} = require('./15_helpers.js')
 
 const templateFactura = {
-    empresa: {},
-    cliente: {},
-    items : [],
+    empresa: {
+        nombre: '',
+        direccion: '',
+        telefono: '',
+        nif: '',
+    },
+    cliente: {
+        nombre: '',
+        direccion: '',
+        telefono: '',
+        nif: '',
+    },
+    items : [
+        {descripcion: '', precioU: 0, cantidad: 0} 
+    ],
     numFactura: '',
     tipoIVA: '',
     formaPago: '',
@@ -98,25 +112,33 @@ factura.prepararFactura = function() {
     const factura =
 `
     _______________________________________________________________
+
                                         ${this.empresa.nombre}
                                         ${this.empresa.direccion}
                                         ${this.empresa.telefono}
                                         ${this.empresa.nif}
+
     Num. Factura: ${this.numFactura}
+
     ${this.cliente.nombre}
     ${this.cliente.direccion}
     ${this.cliente.telefono}
     ${this.cliente.nif}
+
     Descripción                         Precio      Cantidad
     _______________________________     _______     ________
     ${this.listarItems()}
+
     Importe ....................................${importe.base
         .toLocaleString('es', {style: 'currency', currency: 'EUR'})}
     IVA ........................................${importe.iva
         .toLocaleString('es', {style: 'currency', currency: 'EUR'})}
+
     Importe Total ..............................${importe.total
         .toLocaleString('es', {style: 'currency', currency: 'EUR'})}
+
     Forma de Pago ..............................${this.formaPago}
+
     Madrid, ${fechaEsp(this.fecha)}
     ______________________________________________________________
 `

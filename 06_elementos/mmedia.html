@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multimedia - Elementos de la Web</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body id="inicio">
+    <header class="main_header">
+        <h1>Etiquetas de HTML</h1>
+        <p>Clasificación de las <strong>etiquetas</strong> según el <strong>estándar HTML 5.2</strong></p>
+        <nav>
+            <ul>
+                <li><a href="./index.html#sections_elements" rel="tag">Sections</a></li>
+                <li><a href="./index.html#grouping" rel="tag">Grrouping</a></li>
+                <li><a href="./index.html#text_level" rel="tag">Text-Level</a></li>
+                <li><a href="#">Multimedia</a></li>
+                <li><a href="./datos.html#tablas">Tablas</a></li>
+                <li><a href="./datos.html#forms">Formularios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content_wrapper">
+        <main>
+            <section id="Mmedia">
+                <header>
+                    <h2>Multimedia</h2>
+                </header>
+                <p>Entre los elementos embebidos y multimedia, veremos como utilizar:</p>
+                <ul>
+                    <li>Imágenes
+                        <ul>
+                            <li>jpg</li>
+                            <li>gif</li>
+                            <li>png</li>
+                            <li>(webp)</li>
+                            <li>svg</li>
+                        </ul>                        
+                    </li>
+                    <li>Video y Audio
+                        <ul>
+                            <li>mp4</li>
+                            <li>ogg</li>
+                            <li>webm</li>
+                        </ul>                        
+                    </li>
+                    <li>Elementos de navegación gráficos</li>
+                </ul>
+                <section>
+                    <h3>Imágenes</h3>
+                    <div class="seccion_imagenes">
+                        <!-- <img src="./assets/komodo.jpg" alt="Varano de Komode mostrando su lengua bífida"> -->
+                        <img src="./assets/varanococodrilo1.png" alt="Varano cocodrilo">
+                        <img src="./assets/ardilla.gif" alt="Ardilla">
+                        <img srcset="./assets/3boats.webp"
+                            src="./assets/3boats.jpg" alt="Barcas">
+                         <img src="./assets/005.gif" alt="Gif animado abstracto">    
+                        <img src="./assets/WoodElf.png" alt="Elfo">
+                        <img srcset="./assets/logo.svg"
+                        src="./assets/logo.gif" alt="Logotipo">
+                    </div>
+                    <div class="clearfix"></div>    
+                    <p>Uso de imágenes responsivas en HTML</p>
+                    <div>
+                        <img 
+                        srcset="./assets/komodo.300.jpg 300w,
+                                    ./assets/komodo.400.jpg 400w, 
+                                    ./assets/komodo.500.jpg 500w,
+                                    ./assets/komodo.jpg 600w"
+                             sizes = "(max-width: 300px) 300px,
+                                     (max-width: 400px) 400px, 
+                                     (max-width: 500px) 500px"       
+                            src="./assets/komodo.jpg"
+                        alt="Varano de Komodo mostrando su lengua bífida">
+                    </div>
+                    <p>La etiqueta picture y las imágenes responsivas en HTML</p>
+                    <picture>
+                        <source media="(min-width: 600px)" srcset="./assets/iguana.600.jpg" type="image/jpg">
+                        <source media="(min-width: 500px)" srcset="./assets/iguana.500.jpg" type="image/jpg">
+                        <source media="(min-width: 400px)" srcset="./assets/iguana.400.jpg" type="image/jpg">
+                        <source srcset="./assets/iguana.300.jpg" type="image/jpg">
+                        <img src="./assets/iguana.600.jpg" alt="Iguana en un tronco">                        
+                    </picture>
+                    <p>La etiqueta picture y los formatos alternativos de imágenes</p>
+                    <picture>
+                        <source srcset="./assets/tropical-sunrise.webp" type="image/webp">
+                        <img src="./assets/tropical-sunrise.jpg" alt="Amanecer tropical">
+                    </picture>
+                    <picture>
+                        <source srcset="./assets/logo2.svg" type="image/svg+xml">
+                        <img src="./assets/logo2.png" alt="Logotipo">    
+                    </picture>
+                    <p>Etiqueta figure</p>
+                    <figure>
+                        <img src="./assets/komodo.jpg" alt="">
+                        <figcaption>Varano de Komodo</figcaption>
+                    </figure>
+                    <figure>
+                         <img src="./assets/iguana.jpg" alt="">
+                        <figcaption>Iguana</figcaption>                       
+                    </figure>
+                </section>
+                <section>
+                    <h3>Video y Audio</h3>
+                    <p>Es posible incluir un video desde una fuente externa</p>
+                    <div class="embed-container">
+                        <iframe 
+                        src="https://www.youtube.com/embed/rg_zwK_sSEY" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>                        
+                    </div>
+                    <p>Otra opción es reproducir videos de nuestro servidor</p>
+                    <video controls poster="./assets/ghost-in-shell.jpg">
+                        <source src="./assets/Ghost_in_the_Shell_Opening.webm" type="video/webm">
+                        <source src="./assets/Ghost_in_the_Shell_Opening.mp4" type="video/mp4">
+                    </video>
+                    <audio src="./assets/" controls></audio>
+                </section>
+                <section>
+                    <h3>Elementos gráficos de navegación</h3>
+                    <p>En HTML antiguo de usaba la etiqueta map para definir un hotspot</p>
+                    <p>En HTML5 se puede conseguir este efecto usando svg</p>
+                    <embed src="./assets/logo.svg" type="image/svg+xml">
+                    <p>También relacionado con la navegación gráfica estaría el uso de iconos en los menus</p>
+                </section>
+                <aside>
+                    <h3>Elementos embebidos no multimedia</h3>
+                    <p>La etiqueta iframe permite acceder a otra web desde la nuestra</p>
+                    <iframe class="web_externa" src="https://www.tajamar.es/"></iframe>
+                    <p>Un uso habitual de los iframes son los mapas de Google</p>
+                    <p>Podemos compartirlo desde la Web de Google Maps</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12153.934889755068!2d-3.647864258743747!3d40.39813363573143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe65b1da855dfafd4!2sColegio+Tajamar!5e0!3m2!1ses!2ses!4v1557845011667!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <p>O podemos emplear un API Key desde Google Developers</p>
+                    <iframe width="600" height="450" class="sin-borde" 
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCFzeAJCkJSc4sTLiwG-u3hEvlOmVgsGqo&q=Space+Needle,Seattle+WA" 
+                        allowfullscreen></iframe>
+                    <p>Otras formas de insertar contenido externo son object y embed</p>
+                    <p>Object</p>
+                    <object data="https://www.tajamar.es/" type="text/html"></object>
+                    <p>Embed</p>
+                    <embed src="https://www.tajamar.es/" type="text/html">
+                </aside>
+            </section>
+        </main>
+        <aside>
+            <h2>Publicidad</h2>
+            <p>Aquí iría la publicidad</p>
+        </aside>  
+    </div>
+    <iframe class="iframe_footer" src="./footer.html"></iframe>
+</body>
+</html>
