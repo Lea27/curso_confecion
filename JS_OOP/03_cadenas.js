@@ -23,7 +23,7 @@ for (let i = 0; i < cadena.length; i++) {
 let x = cadena.split(' ').join('').toUpperCase()
 console.log(x)
 
-/* cadena.slice(inicio, final)
+cadena.slice(inicio, final)
 cadena.substring(nicio, final)
 cadena.substr(inicio, desplazamiento)
 
@@ -37,7 +37,7 @@ cadena.lastIndexOf(clave)
 cadena.charAt(posicion) // cadena[position]
 cadena.charCodeAt(posion)
 
-String.fromCharCode(num) */
+String.fromCharCode(num) 
 
 let numero = 23.7865432
 console.log(numero)
