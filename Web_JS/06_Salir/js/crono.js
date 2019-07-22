@@ -1,4 +1,6 @@
 
+
+
 export class Crono {
   constructor () {
       this.isOn = false
