@@ -7,14 +7,34 @@ export function app() {
     let dlgCancelar = document.querySelector('#dlg-cancelar')
     let btnCancelar = document.querySelector('#btn-cancelar')
     let dlgTime = document.querySelector("#dlg-time")
+    let wrapperCronos = document.querySelector(".wrapper-cronos")
+    let inPlayer = document.querySelector("#in-player")
+    let btnInscribir = document.querySelector("#inscribir")
     let handlerSalir
     let handlerInterval
 
     btnSalir.addEventListener('click', onClick)
     btnCancelar.addEventListener('click', onCancel)
+    btnInscribir.addEventListener('click', onInscribir)
 
-    new Crono()
+    let aCronos = []
+    if (localStorage.get('players')) {
+        aCronos = JSON.parse(localStorage.getItem('players'))  
+    } 
+    
+    
+    checkArray()
 
+    function checkArray() {
+        wrapperCronos.innerHTML=''
+            aCronos.forEach( idCrono => { 
+            new Crono(idCrono, wrapperCronos)
+        })
+        // wrapperCronos.innerHTML += `<p>Creados los cronómetros</p>`
+
+       
+        
+    }
     function onClick() {
         let url = 'https://www.google.com/'
         handlerSalir = setTimeout(() => location.assign(url),
@@ -31,4 +51,18 @@ export function app() {
         clearInterval(handlerInterval)
         dlgCancelar.close()
     }
+    
+
+    function onInscribir(params) {
+        let player = inPlayer.value
+        if (player) {
+            aCronos.push(player)
+            localStorage.setItem('players', JSON.stringify(aCronos))
+            inPlayer.value = ''
+            console.log(aCronos)
+        }
+        checkArray()
+    }
  }
+
+
