@@ -12,4 +12,5 @@ console.dir(document) // permite ver los objts dom como java
 
 console.log(querySelector)
 document.querySelector('#btn-super').onclick = saludar // permite hacer seleciones de objts en funccion de selectores css
+document.querySelector('#btn-super').title = 'Info desde JS'
 }

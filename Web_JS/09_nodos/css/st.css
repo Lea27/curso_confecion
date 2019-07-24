@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+header {
+    background-color: rgb(255, 217, 205);
+    color: rgb(41, 65, 22);
+    min-height:15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    margin: 2rem;
+    min-height: 60vh;
+}
+
+.social ul {
+    list-style: none;
+}
+
+.social a {
+    font-size: 1.5rem;
+}
+
+footer {
+    
+    min-height: 10vh;
+    background-color: rgb(255, 217, 205);
+    color: rgb(41, 65, 22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
