@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS en la web</title>
+    <link rel="stylesheet" href="./css/st.css">
+    <link rel="stylesheet" href="./favicon.ico">
+    <script src="./js/bootstrap.1.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <h1>JS en la web</h1>
+    </header>
+    <main>
+        <section>
+            <h2 contenteditable>Lista de animales</h2>
+            <div>
+                <label for="in-new">Añade un animal</label>
+                <input type="text" name="in-new" id="in-new">
+            </div>
+            <div>
+                <h3>Lista de animales</h3>
+                <div id="out-lista"></div>
+            </div>
+            <dialog id='dlg-cancelar'>
+                <div>
+                    <p>Estas seguro de querer eliminar este elemento!</p>
+                    <div class="out-wrapper">
+                        <output id="dlg-time"></output>
+                    </div>
+                    <div>
+                        <button id='btn-cancelar'>Cancelar</button>   
+                    </div>          
+                </div>
+            </dialog>  
+        </section>
+    </main>
+    <footer>
+        <address>
+            Léa Garcia
+        </address>
+    </footer>
+</body>
+</html>
