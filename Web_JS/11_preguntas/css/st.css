@@ -18,6 +18,29 @@ main {
     margin: 2rem;
     min-height: 60vh;
 }
+
+.oculto {
+    display: none;
+}
+
+.btn {
+    cursor: pointer;
+    color: brown;
+    font-family: cursive;
+}
+.super-boton {
+    padding: 2rem;
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    color: blueviolet;
+    border: 1px solid;
+    border-radius: 10px 10px;
+    font-family: cursive;
+    background-color: aquamarine
+
+}
+.hover
 footer {
     min-height: 10vh;
     background-color: brown;
