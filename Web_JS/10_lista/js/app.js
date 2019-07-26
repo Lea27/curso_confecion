@@ -8,10 +8,15 @@ export function app(){
 
     let inAnimal = document.querySelector('#in-new')
     let outAnimal = document.querySelector('#out-lista')
+    let dlgConfirmar = document.querySelector('.confirmacion')
+    let aDlgBotones = document.querySelectorAll('.confirmacion button')
 
     //Asignar manejador de eventos
 
     inAnimal.addEventListener('change', addAnimal)
+    aDlgBotones.forEach(btn => 
+        btn.addEventListener('click', onClickDlg))
+
 
     //Crear array
 
@@ -44,7 +49,6 @@ export function app(){
                 <span class="texto" data-id="${i}">${item}</span>
                 <span class="btn btn-editar" data-id="${i}">✍️</span> 
                 <span class="btn btn-borrar" data-id="${i}">🗑️</span> 
-                <span class="dialog" data-id="${i}">Esta seguro de querer eliminar este elemento</span>
             </li>`)
         html += '</ul>'
         outAnimal.innerHTML = html
@@ -52,37 +56,30 @@ export function app(){
         let aBtnBorrar = document.querySelectorAll('.btn-borrar')
         let aBtnEditar = document.querySelectorAll('.btn-editar')
         let aTextos = document.querySelectorAll('.texto')
-        let btnCancelar = documetn.querySelector('#btn-cancelar')
-        let dlgCancelar = document.querySelector('#dlg-cancelar')
-        let handlerBorrar
+      
 
         aBtnBorrar.forEach(btn => btn.addEventListener('click', onBorrar))
         aBtnEditar.forEach(btn => btn.addEventListener('click', onEditar))
         aTextos.forEach(txt => txt.addEventListener('blur', onChange))
-        btnCancelar.forEach(btn => btn.addEventListener('click', onCancelar))
         
-        handlerBorrar = setTimeout(() => onBorrar(),       4800)
-            dlgCancelar.showModal()
-            dlgTime.value = 5
-            handlerInterval = setInterval( () => {
-                dlgTime.value -= 1
-            }, 1000)
+        
+        
 
     }
 
-    function onBorrar(event) {
-        console.log(event.target.dataset.id)
-        let borrar = animales.splice(event.target.dataset.id, 1)
-        localStorage.setItem('zoo', JSON.stringify(animales))   
-        
+    function onBorrar(ev) {
+        numBorrar = ev.target.dataset.id
+        dlgConfirmar.showModal()
+    }
+
+   function onClickDlg (ev) {
+       if (ev.target.textContent === 'SI') {
+        animales.splice(numBorrar, 1)
         save()
-        render()
-    }
-
-    function onEditar(event) {
-        console.log(event.target.dataset.id)
-        event.target.previousElementSibling.contentEditable = true
-    }
+        render()     
+       }
+       dlgConfirmar.close()
+   }   
 
     function onChange(event) {
         event.target.contentEditable = false
@@ -93,11 +90,6 @@ export function app(){
         render()
     }
     
-    function onCancelar(event) {
-        clearTimeout(handlerSalir)
-        clearInterval(handlerInterval)
-        dlgCancelar.close()
-    
-    }
+
     
 }
